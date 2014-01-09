@@ -6,6 +6,8 @@
 var express = require('express')
   , http = require('http')
   , path = require('path')
+  , getSpreadsheet = require('./lib/get-spreadsheet')
+  , processSpreadsheet = require('./lib/process-spreadsheet')
   , app = express()
 
 // all environments
@@ -26,7 +28,14 @@ if ('development' === app.get('env')) {
 }
 
 app.get('/', function (req, res) {
-  res.render('index', { title: 'Express' })
+  getSpreadsheet(function (error, spreadsheet) {
+    if (error) {
+      console.error(error)
+      return res.send(500, { error: error })
+    }
+
+    res.render('index', { targets: processSpreadsheet(spreadsheet) })
+  })
 })
 
 http.createServer(app).listen(app.get('port'), function(){

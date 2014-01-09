@@ -1,7 +1,19 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  span(data-targets=JSON.stringify(targets))
+  h1=targets.formatTarget
+  h1 Company target
+  h1=targets.formatEarnt
+  h1 Company actual
+
+  ul
+    each quarter in targets.quarters
+      li
+        p=quarter.title
+        p Quarter target: #{quarter.target}
+        p Quarter actual: #{quarter.earnt}
+        p Has this quarter been met? #{quarter.met}
+        p Is this quarter over? #{quarter.passed}
 
   script(src='/javascripts/index.js')
