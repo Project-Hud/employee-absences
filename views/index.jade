@@ -1,19 +1,11 @@
 extends layout
 
 block content
-  span(data-targets=JSON.stringify(targets))
-  h1=targets.formatTarget
-  h1 Company target
-  h1=targets.formatEarnt
-  h1 Company actual
+  span(data-absences=JSON.stringify(absences))
 
+  h1 Absence
   ul
-    each quarter in targets.quarters
-      li
-        p=quarter.title
-        p Quarter target: #{quarter.target}
-        p Quarter actual: #{quarter.earnt}
-        p Has this quarter been met? #{quarter.met}
-        p Is this quarter over? #{quarter.passed}
+    each absence in absences
+      li #{absence.name} - #{absence.duration} days
 
   script(src='/javascripts/index.js')

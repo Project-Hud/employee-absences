@@ -27,6 +27,12 @@ if ('development' === app.get('env')) {
   app.use(express.errorHandler())
 }
 
+// Uncomment for testing purposes so that the spreadsheet gets loaded
+// when the app runs
+// getSpreadsheet(function (err, spreadsheet) {
+//   console.log(processSpreadsheet(spreadsheet));
+// })
+
 app.get('/', function (req, res) {
   getSpreadsheet(function (error, spreadsheet) {
     if (error) {
@@ -34,7 +40,7 @@ app.get('/', function (req, res) {
       return res.send(500, { error: error })
     }
 
-    res.render('index', { targets: processSpreadsheet(spreadsheet) })
+    res.render('index', { absences: processSpreadsheet(spreadsheet) })
   })
 })
 
