@@ -7,5 +7,6 @@ block content
   ul
     each absence in absences
       li #{absence.name} - #{absence.duration} days
+        img(src=absence.image, alt=absence.name)
 
   script(src='/javascripts/index.js')
