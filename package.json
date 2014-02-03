@@ -10,6 +10,7 @@
     "jade": "*",
     "edit-google-spreadsheet": "~0.2.2",
     "lodash": "~2.4.1",
-    "number-abbreviate": "0.0.0"
+    "number-abbreviate": "0.0.0",
+    "moment-range": "~0.1.7"
   }
 }

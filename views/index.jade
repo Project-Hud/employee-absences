@@ -6,7 +6,8 @@ block content
   h1 Absence
   ul
     each absence in absences
-      li #{absence.name} - #{absence.duration} days
+      - dayStr = absence.duration === 1 ? 'day' : 'days'
+      li #{absence.name} - #{absence.duration} #{dayStr}
         img(src=absence.image, alt=absence.name)
 
   script(src='/javascripts/index.js')
