@@ -1,5 +1,4 @@
 body {
-  padding: 20px;
   font: 14px "Lato", Helvetica, Arial, sans-serif;
   color: white;
 }
@@ -16,9 +15,13 @@ ul {
 
 li {
   display: inline-block;
-  margin-right: 20px;
 }
 
+.absenteeWidget ul {
+  padding-left: 20px;
+  max-width: 330px;
+  margin: 0 auto;
+}
 
 .absenteeWidget__title {
   position: relative;
@@ -29,13 +32,13 @@ li {
   content: "";
   position: absolute;
   top: 50%;
-  width: 140px;
+  width: 30%;
   height: 10px;
   border-color: white;
   border-style: solid;
 }
 .absenteeWidget__title:before {
-  left: -10px;
+  left: 0;
   border-top-width: 1px;
   border-left-width: 1px;
   border-bottom: none;
@@ -43,7 +46,7 @@ li {
 }
 
 .absenteeWidget__title:after {
-  right: -10px;
+  right: 0;
   border-top-width: 1px;
   border-right-width: 1px;
   border-bottom: none;
@@ -53,8 +56,8 @@ li {
 .absenteeWidget__absentee {
   display: inline-block;
   vertical-align: middle;
-  height: 90px;
-  width: 90px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .absenteeWidget__absentee img{
