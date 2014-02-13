@@ -3,11 +3,12 @@ extends layout
 block content
   span(data-absences=JSON.stringify(absences))
 
-  h1 Absence
+  h1.absenteeWidget__title Absence
   ul
     each absence in absences
       - dayStr = absence.duration === 1 ? 'day' : 'days'
-      li #{absence.name} - #{absence.duration} #{dayStr}
+      li.absenteeWidget__absentee
         img(src=absence.image, alt=absence.name)
+        span.absenteeWidget__absenteeInformation #{absence.duration} &nbsp; #{dayStr}
 
   script(src='/javascripts/index.js')
