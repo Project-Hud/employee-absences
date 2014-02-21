@@ -11,6 +11,7 @@
     "edit-google-spreadsheet": "git+ssh://git@github.com:matthojo/node-edit-google-spreadsheet.git#stable",
     "lodash": "~2.4.1",
     "number-abbreviate": "0.0.0",
-    "moment-range": "~0.1.7"
+    "moment-range": "~0.1.7",
+    "request": "~2.34.0"
   }
 }

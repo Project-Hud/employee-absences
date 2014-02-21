@@ -8,6 +8,7 @@ var express = require('express')
   , path = require('path')
   , getSpreadsheet = require('./lib/get-spreadsheet')
   , processSpreadsheet = require('./lib/process-spreadsheet')
+  , getHolidays = require('./lib/get-holidays')
   , app = express()
 
 // all environments
@@ -40,7 +41,15 @@ app.get('/', function (req, res) {
       return res.send(500, { error: error })
     }
 
-    res.render('index', { absences: processSpreadsheet(spreadsheet) })
+    getHolidays(function (error, holidays) {
+      if (error) {
+        console.error(error)
+        return res.send(500, { error: error })
+      }
+
+      res.render('index', { absences: processSpreadsheet(spreadsheet), holidays: holidays })
+    })
+
   })
 })
 
