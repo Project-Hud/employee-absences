@@ -21,7 +21,7 @@ block content
         each holiday in holidays
           - dayStr = holiday.duration === 1 ? 'day' : 'days'
           li.absenteeWidget__absentee
-            img(src=holiday.image, alt=holiday.name)
+            img(src=employeeImages[holiday.name], alt=holiday.name)
             span.absenteeWidget__absenteeInformation #{holiday.duration} &nbsp; #{dayStr}
       else
         li.absenteeWidget__absentee
