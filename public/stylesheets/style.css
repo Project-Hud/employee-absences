@@ -17,6 +17,24 @@ li {
   display: inline-block;
 }
 
+.absenteeWidget {
+  position: relative;
+}
+
+.absenteeWidget__panel {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.absenteeWidget__panel:first-child {
+  display: block;
+}
+
+
 .absenteeWidget ul {
   padding-left: 20px;
   max-width: 330px;

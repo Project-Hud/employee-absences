@@ -1,30 +1,52 @@
 extends layout
 
+mixin panel(title, employees)
+  - var displayOnPanel = 6
+  - for (var i = 0; i < employees.length; i += displayOnPanel)
+    .absenteeWidget__panel.js-panel
+      h1.absenteeWidget__title=title
+      ul
+        - for (var n = 0; n < displayOnPanel; n += 1)
+          - var item = n + i
+          - var employee = employees[item]
+
+          if employee != undefined
+            +list-item(employee)
+
+mixin list-item(data)
+  - dayStr = data.duration === 1 ? 'day' : 'days'
+  li.absenteeWidget__absentee
+    .employee__avatar
+      .employee__initials.js-employee-initials
+      img.employee__image.js-avatar(height='72', width='72', src=employeeImages[data.name], alt=data.name)
+
+    span.absenteeWidget__absenteeInformation #{data.duration} &nbsp; #{dayStr}
+
+mixin no-employees(title)
+  .absenteeWidget__panel.js-panel
+    h1.absenteeWidget__title=title
+    ul
+      li.absenteeWidget__absentee
+        span.absenteeWidget__absenteeInformation None
+
+
+
+
+
 block content
   span(data-absences=JSON.stringify(absences))
+  span(data-holidays=JSON.stringify(holidays))
+
   .absenteeWidget
-    h1.absenteeWidget__title Absence
-    ul
-      if absences && absences.length > 0
-        each absence in absences
-          - dayStr = absence.duration === 1 ? 'day' : 'days'
-          li.absenteeWidget__absentee
-            img(src=absence.image, alt=absence.name)
-            span.absenteeWidget__absenteeInformation #{absence.duration} &nbsp; #{dayStr}
-      else
-        li.absenteeWidget__absentee
-          span.absenteeWidget__absenteeInformation None
+    if absences && absences.length > 0
+      +panel("Absence", absences)
+    else
+      +no-employees("Absence")
 
-    h1.absenteeWidget__title Holiday
-    ul
-      if holidays && holidays.length > 0
-        each holiday in holidays
-          - dayStr = holiday.duration === 1 ? 'day' : 'days'
-          li.absenteeWidget__absentee
-            img(src=employeeImages[holiday.name], alt=holiday.name)
-            span.absenteeWidget__absenteeInformation #{holiday.duration} &nbsp; #{dayStr}
-      else
-        li.absenteeWidget__absentee
-          span.absenteeWidget__absenteeInformation None
+    if holidays && holidays.length > 0
+      +panel("Holiday", holidays)
+    else
+      +no-employees("Holiday")
 
+  script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
   script(src='/javascripts/index.js')
