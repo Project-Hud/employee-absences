@@ -1,95 +1,167 @@
-body {
-  font: 14px "Lato", Helvetica, Arial, sans-serif;
-  color: white;
-}
+body
+  font 14px "Lato", Helvetica, Arial, sans-serif
+  color white
 
-a {
-  color: #00B7FF;
-}
+.viewer
+  width 450px
+  position relative
+  overflow hidden
+  border 5px solid #999
 
-ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
+.slider-container
+  width 600px
+  height 300px
+  overflow hidden
+  position relative
+  background-color black
 
-li {
-  display: inline-block;
-}
+.slider--slide
+  width 300px
+  float left
+  text-align center
+  height 300px
 
-.absenteeWidget {
-  position: relative;
-}
-
-.absenteeWidget__panel {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.absenteeWidget__panel:first-child {
-  display: block;
-}
+.slider-one__title
+  background-color #000
 
 
-.absenteeWidget ul {
-  padding-left: 20px;
-  max-width: 330px;
-  margin: 0 auto;
-}
+.slider-two__title
+  background-color #000
 
-.absenteeWidget__title {
-  position: relative;
-  text-transform: uppercase;
-  text-align: center;
-}
-.absenteeWidget__title:before, .absenteeWidget__title:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 30%;
-  height: 10px;
-  border-color: white;
-  border-style: solid;
-}
-.absenteeWidget__title:before {
-  left: 0;
-  border-top-width: 1px;
-  border-left-width: 1px;
-  border-bottom: none;
-  border-right: none;
-}
+.slider-three__title
+  background-color green
 
-.absenteeWidget__title:after {
-  right: 0;
-  border-top-width: 1px;
-  border-right-width: 1px;
-  border-bottom: none;
-  border-left: none;
-}
+ h3
+  font-size 30px
+  padding 0
+  margin 50px 0 0 0
+  color white
 
-.absenteeWidget__absentee {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
+.pagination
+  position absolute
+  top 10px
+  left 380px
+  z-index 1000
+  text-align right
 
-.absenteeWidget__absentee img{
-  box-sizing: border-box;
-  display: block;
-  height: 90px;
-  width: 90px;
-  margin-bottom: 10px;
-  border: 3px solid orange;
-}
+.controls li
+  width 10px
+  height 10px
+  list-style none
+  margin 0 0 0 5px
+  float left
+  border 1px solid white
+  border-radius 50%
 
-.absenteeWidget__absenteeInformation {
-  display: block;
-  font-size: 18px;
-  text-transform: uppercase;
-  text-align: center;
-}
+.active
+  background-color white
+
+.test
+  color black
+
+.image-block
+  height auto
+  float left
+  margin 0 5px 0 5px
+
+.image-goes-here
+  width 88px
+  height 88px
+  background-color red
+  border 1px solid #ccc
+  margin 10px 0 10px 0
+
+.image-block span
+  color #fff
+
+
+// a
+//   color #00B7FF
+
+
+// ul
+//   padding 0
+//   margin 0
+//   list-style none
+
+
+// li
+//   display inline-block
+
+
+// .absenteeWidget
+//   position relative
+
+
+// .absenteeWidget__panel
+//   display none
+//   position absolute
+//   top 0
+//   right 0
+//   bottom 0
+//   left 0
+
+
+// .absenteeWidget__panel:first-child
+//   display block
+
+
+
+// .absenteeWidget ul
+//   padding-left 20px
+//   max-width 330px
+//   margin 0 auto
+
+
+// .absenteeWidget__title
+//   position relative
+//   text-transform uppercase
+//   text-align center
+
+// .absenteeWidget__title:before, .absenteeWidget__title:after
+//   content ""
+//   position absolute
+//   top 50%
+//   width 30%
+//   height 10px
+//   border-color white
+//   border-style solid
+
+// .absenteeWidget__title:before
+//   left 0
+//   border-top-width 1px
+//   border-left-width 1px
+//   border-bottom none
+//   border-right none
+
+
+// .absenteeWidget__title:after
+//   right 0
+//   border-top-width 1px
+//   border-right-width 1px
+//   border-bottom none
+//   border-left none
+
+
+// .absenteeWidget__absentee
+//   display inline-block
+//   vertical-align middle
+//   margin-right 20px
+//   margin-bottom 20px
+
+
+// .absenteeWidget__absentee img
+//   box-sizing border-box
+//   display block
+//   height 90px
+//   width 90px
+//   margin-bottom 10px
+//   border 3px solid orange
+
+
+// .absenteeWidget__absenteeInformation
+//   display block
+//   font-size 18px
+//   text-transform uppercase
+//   text-align center
+

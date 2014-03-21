@@ -1,52 +1,96 @@
 extends layout
 
-mixin panel(title, employees)
-  - var displayOnPanel = 6
-  - for (var i = 0; i < employees.length; i += displayOnPanel)
-    .absenteeWidget__panel.js-panel
-      h1.absenteeWidget__title=title
-      ul
-        - for (var n = 0; n < displayOnPanel; n += 1)
-          - var item = n + i
-          - var employee = employees[item]
-
-          if employee != undefined
-            +list-item(employee)
-
-mixin list-item(data)
-  - dayStr = data.duration === 1 ? 'day' : 'days'
-  li.absenteeWidget__absentee
-    .employee__avatar
-      .employee__initials.js-employee-initials
-      img.employee__image.js-avatar(height='72', width='72', src=employeeImages[data.name], alt=data.name)
-
-    span.absenteeWidget__absenteeInformation #{data.duration} &nbsp; #{dayStr}
-
-mixin no-employees(title)
-  .absenteeWidget__panel.js-panel
-    h1.absenteeWidget__title=title
-    ul
-      li.absenteeWidget__absentee
-        span.absenteeWidget__absenteeInformation None
-
-
-
-
-
 block content
-  span(data-absences=JSON.stringify(absences))
-  span(data-holidays=JSON.stringify(holidays))
 
-  .absenteeWidget
-    if absences && absences.length > 0
-      +panel("Absence", absences)
-    else
-      +no-employees("Absence")
+    .pagination
+      ul.controls
 
-    if holidays && holidays.length > 0
-      +panel("Holiday", holidays)
-    else
-      +no-employees("Holiday")
+    .viewer
+      .slider-container
+        .slider--slide.slider-one__title
+          h3.title__absence
+            | Absence
 
-  script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
+          .image-block
+            .image-goes-here
+            span.days-left
+
+          .image-block
+            .image-goes-here
+            span.days-left
+
+          .image-block
+            .image-goes-here
+            span.days-left
+
+
+        .slider--slide.slider-two__title
+          h3.itle__holiday
+            | Holiday
+
+          .image-block
+            .image-goes-here
+            span.days-left
+
+          .image-block
+            .image-goes-here
+            span.days-left
+
+          .image-block
+            .image-goes-here
+            span.days-left
+
+    p.test
+
+
+
+//- mixin panel(title, employees)
+//-   - var displayOnPanel = 6
+//-   - for (var i = 0; i < employees.length; i += displayOnPanel)
+//-     .absenteeWidget__panel.js-panel
+//-       h1.absenteeWidget__title=title
+//-       ul
+//-         - for (var n = 0; n < displayOnPanel; n += 1)
+//-           - var item = n + i
+//-           - var employee = employees[item]
+
+//-           if employee != undefined
+//-             +list-item(employee)
+
+//- mixin list-item(data)
+//-   - dayStr = data.duration === 1 ? 'day' : 'days'
+//-   li.absenteeWidget__absentee
+//-     .employee__avatar
+//-       .employee__initials.js-employee-initials
+//-       img.employee__image.js-avatar(height='72', width='72', src=employeeImages[data.name], alt=data.name)
+
+//-     span.absenteeWidget__absenteeInformation #{data.duration} &nbsp; #{dayStr}
+
+//- mixin no-employees(title)
+//-   .absenteeWidget__panel.js-panel
+//-     h1.absenteeWidget__title=title
+//-     ul
+//-       li.absenteeWidget__absentee
+//-         span.absenteeWidget__absenteeInformation None
+
+
+
+
+
+//- block content
+//-   span(data-absences=JSON.stringify(absences))
+//-   span(data-holidays=JSON.stringify(holidays))
+
+//-   .absenteeWidget
+//-     if absences && absences.length > 0
+//-       +panel("Absence", absences)
+//-     else
+//-       +no-employees("Absence")
+
+//-     if holidays && holidays.length > 0
+//-       +panel("Holiday", holidays)
+//-     else
+//-       +no-employees("Holiday")
+
+  script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
   script(src='/javascripts/index.js')
