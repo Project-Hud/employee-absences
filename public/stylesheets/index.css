@@ -1,15 +1,15 @@
 body{font:14px "Lato",Helvetica,Arial,sans-serif;color:#fff}
-a{color:#00b7ff}
-ul{padding:0;margin:0;list-style:none}
-li{display:inline-block}
-.absenteeWidget{position:relative}
-.absenteeWidget__panel{display:none;position:absolute;top:0;right:0;bottom:0;left:0}
-.absenteeWidget__panel:first-child{display:block}
-.absenteeWidget ul{padding-left:20px;max-width:330px;margin:0 auto}
-.absenteeWidget__title{position:relative;text-transform:uppercase;text-align:center;font-size:7vw}
-.absenteeWidget__title:before,.absenteeWidget__title:after{content:"";position:absolute;top:50%;width:30%;height:10px;border-color:#fff;border-style:solid}
-.absenteeWidget__title:before{left:0;border-top-width:1px;border-left-width:1px;border-bottom:none;border-right:none}
-.absenteeWidget__title:after{right:0;border-top-width:1px;border-right-width:1px;border-bottom:none;border-left:none}
-.absenteeWidget__absentee{display:inline-block;vertical-align:middle;margin-right:20px;margin-bottom:20px}
-.absenteeWidget__absentee img{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:block;height:90px;width:90px;margin-bottom:10px;border:3px solid #ffa500}
-.absenteeWidget__absenteeInformation{display:block;font-size:18px;text-transform:uppercase;text-align:center}
+.viewer{width:450px;position:relative;overflow:hidden;border:5px solid #999}
+.slider-container{width:600px;height:300px;overflow:hidden;position:relative;background-color:#000}
+.slider--slide{width:300px;float:left;text-align:center;height:300px}
+.slider-one__title{background-color:#000}
+.slider-two__title{background-color:#000}
+.slider-three__title{background-color:#008000}
+h3{font-size:30px;padding:0;margin:50px 0 0 0;color:#fff}
+.pagination{position:absolute;top:10px;left:380px;z-index:1000;text-align:right}
+.controls li{width:10px;height:10px;list-style:none;margin:0 0 0 5px;float:left;border:1px solid #fff;border-radius:50%}
+.active{background-color:#fff}
+.test{color:#000}
+.image-block{height:auto;float:left;margin:0 5px 0 5px}
+.image-goes-here{width:88px;height:88px;background-color:#f00;border:1px solid #ccc;margin:10px 0 10px 0}
+.image-block span{color:#fff}
