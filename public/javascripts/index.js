@@ -2,22 +2,6 @@
 
 
 
-/*var position = $('.sliderOne__title').offset();
-var positionLeft = position.left*/
-
-/*if (positionLeft > 140){
-  slideRight()
-}*/
-/*
-setInterval(function(){
-  slideLeft()
-}, 5000)
-
-setInterval(function(){
-  slideRight()
-}, 10000)*/
-
-
 numberOfSlides = $('.slider--slide').length
 
 
@@ -65,32 +49,5 @@ function changeOpacity(){
 setInterval(function (){
   slideNext()
 }, 5000)
-
-
-
-
-
-
-  // function hide($el) {
-  //   $el.fadeOut()
-  // }
-
-  // function show($el) {
-  //   $el.fadeIn()
-  // }
-
-  // function next() {
-  //   var $currentPanel = $('.js-panel:visible')
-  //     , $upcomingPanel = $currentPanel.next('.js-panel')
-
-  //   if ($upcomingPanel.length === 0) {
-  //     $upcomingPanel = $('.js-panel:first-child')
-  //   }
-
-  //   hide($currentPanel)
-  //   show($upcomingPanel)
-  // }
-
-  // setInterval(next, 5000)
 
 })()
