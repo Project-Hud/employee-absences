@@ -5,11 +5,11 @@ body{font:14px "Lato",Helvetica,Arial,sans-serif;color:#fff}
 .slider-one__title{background-color:#000}
 .slider-two__title{background-color:#000}
 .slider-three__title{background-color:#008000}
-h3{font-size:30px;padding:0;margin:50px 0 0 0;color:#fff}
+h3{font-size:30px;padding:0;margin:10px 0 20px 0;color:#fff}
 .pagination{position:absolute;top:10px;left:380px;z-index:1000;text-align:right}
 .controls li{width:10px;height:10px;list-style:none;margin:0 0 0 5px;float:left;border:1px solid #fff;border-radius:50%}
 .active{background-color:#fff}
 .test{color:#000}
 .image-block{height:auto;float:left;margin:0 5px 0 5px}
-.image-goes-here{width:88px;height:88px;background-color:#f00;border:1px solid #ccc;margin:10px 0 10px 0}
+.image-block__image{width:72px;background-color:#f00;border:1px solid #ccc;margin:10px 0 10px 0;height:72px}
 .image-block span{color:#fff}

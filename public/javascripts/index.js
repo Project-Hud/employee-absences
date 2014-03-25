@@ -1,7 +1,5 @@
 (function () {
 
-
-
 numberOfSlides = $('.slider--slide').length
 
 
