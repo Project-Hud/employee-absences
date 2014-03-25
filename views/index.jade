@@ -11,9 +11,18 @@ mixin panel(title, employees)
           +list-item(employee)
 
 mixin list-item(data)
-  - dayStr = data.duration === 1 ? 'day' : 'days'
+  - var imgClasses = []
+  - var dayStr = ''
+
+  if (data.duration <= 2)
+    - dayStr = 'day'
+    - imgClasses.push('image-block__image--single')
+  else
+    - dayStr = 'days'
+    - imgClasses.push('image-block__image--multiple')
+
   .image-block
-    .image-block__image
+    .image-block__image(class=imgClasses.join(' '))
       img.js-avatar(height='72', width='72', src=employeeImages[data.name], alt=data.name)
 
     span.days-left #{data.duration} &nbsp; #{dayStr}
@@ -21,7 +30,7 @@ mixin list-item(data)
 mixin no-employees(title)
   .slider--slide.js-panel
     h3.title__absence=title
-    span.absenteeWidget__absenteeInformation None
+    .absenteeWidget__absenteeInformation No one off today
 
 extends layout
 
@@ -43,6 +52,6 @@ block content
         +panel("Holiday", holidays)
       else
         +no-employees("Holiday")
-        
+
   script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
   script(src='/javascripts/index.js')

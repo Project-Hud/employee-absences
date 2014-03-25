@@ -1,15 +1,16 @@
 (function () {
 
 var numberOfSlides = $('.slider--slide').length
-  , sliderWidth = 300
+  , sliderWidth = 370
   , currentSlide = 0
   , containerWidth = sliderWidth * numberOfSlides
+  , sliderContainer = $('.slider-container')
 
 function init() {
-  $('.slider-container').css("width", containerWidth)
+  sliderContainer.css("width", containerWidth)
 
   for (var i = 0; i < numberOfSlides; i++) {
-    $('.controls').append('<li></li>')
+    $('.controls').append('<li class=\"slide-control\"></li>')
 
   }
 
@@ -21,9 +22,11 @@ function init() {
 }
 
 function slideTo(num){
-  $('.slider-container').animate({left: -(sliderWidth * num / 2)})
+  sliderContainer.animate({left: -(sliderWidth * num )}, 700)
   $('.slider--slide.is-active').removeClass('is-active')
   $('.slider--slide:eq(' + num + ')').addClass('is-active')
+  $('.slide-control.slide-is-active').removeClass('slide-is-active')
+  $('.slide-control:eq(' + num + ')').addClass('slide-is-active')
   currentSlide = num
 }
 
