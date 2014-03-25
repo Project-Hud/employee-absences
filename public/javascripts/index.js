@@ -1,30 +1,31 @@
 (function () {
 
-numberOfSlides = $('.slider--slide').length
+var numberOfSlides = $('.slider--slide').length
+  , sliderWidth = 300
+  , currentSlide = 0
+  , containerWidth = sliderWidth * numberOfSlides
 
+function init() {
+  $('.slider-container').css("width", containerWidth)
 
-sliderWidth = 300
-currentSlide = 0
+  for (var i = 0; i < numberOfSlides; i++) {
+    $('.controls').append('<li></li>')
 
-containerWidth = sliderWidth * numberOfSlides
+  }
 
-numberOfDays = 1 + Math.floor(Math.random() * 6)
+  slideTo(0)
 
-$('.slider-container').css("width", containerWidth)
-
-
+  setInterval(function (){
+    slideNext()
+  }, 5000)
+}
 
 function slideTo(num){
   $('.slider-container').animate({left: -(sliderWidth * num / 2)})
+  $('.slider--slide.is-active').removeClass('is-active')
+  $('.slider--slide:eq(' + num + ')').addClass('is-active')
   currentSlide = num
 }
-
-for (var i = 0; i < numberOfSlides; i++) {
-  $('.controls').append('<li></li>')
-
-}
-
-$('.days-left').text(numberOfDays)
 
 function slideNext(){
   if(currentSlide === (numberOfSlides - 1)) {
@@ -35,17 +36,10 @@ function slideNext(){
   }
 }
 
-
 function slidePrev(){
   slideTo(currentSlide - 1)
 }
 
-function changeOpacity(){
-  $('.title__holiday').animate({opacity: 1})
-}
-
-setInterval(function (){
-  slideNext()
-}, 5000)
+init()
 
 })()
