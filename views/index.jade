@@ -25,7 +25,7 @@ mixin list-item(data)
     .image-block__image(class=imgClasses.join(' '))
       img.js-avatar(height='72', width='72', src=employeeImages[data.name], alt=data.name)
 
-    span.days-left #{data.duration} &nbsp; #{dayStr}
+    span.days-left #{data.duration}&nbsp;#{dayStr}
 
 mixin no-employees(title)
   .slider--slide.js-panel
@@ -42,7 +42,7 @@ block content
     ul.controls
 
   .viewer
-    .slider-container
+    .slider-container(class=(absences.length <= 3 && holidays.length <= 3 ? "stacked" : ""))
       if absences && absences.length > 0
         +panel("Absence", absences)
       else
