@@ -1,0 +1,25 @@
+mixin panel(title, employees)
+  - var displayOnPanel = 6
+  - var panelClasses = []
+  if (employees.length <= 3) panelClasses.push('js-panel')
+  - for (var i = 0; i < employees.length; i += displayOnPanel)
+    .slider--slide(class=panelClasses.join(' '))
+      h3.title__absence=title
+      - for (var n = 0; n < displayOnPanel; n += 1)
+        - var item = n + i
+        - var employee = employees[item]
+        - var imgClasses = []
+        - var dayStr = ''
+
+        if employee != undefined
+          if (employee.duration <= 2)
+            - dayStr = 'day'
+            - imgClasses.push('image-block__image--single')
+          else
+            - dayStr = 'days'
+            - imgClasses.push('image-block__image--multiple')
+
+          .image-block
+            .image-block__image(class=imgClasses.join(' '))
+              img.js-avatar(height='72', width='72', src=employeeImages[employee.name], alt=employee.name)
+            span.days-left #{employee.duration} &nbsp; #{dayStr}
