@@ -8,7 +8,7 @@
 
 
   function init() {
-    sliderContainer.css("width", containerWidth)
+    sliderContainer.css('width', containerWidth)
 
     for (var i = 0; i < numberOfSlides; i++) {
       $('.controls').append('<li class=\"slide-control\"></li>')
@@ -40,12 +40,7 @@
     }
   }
 
-  function slidePrev(){
-    slideTo(currentSlide - 1)
-  }
-
   if ($('.stacked').length > 0) {
-    console.log('stacked')
     sliderContainer.css('width', $('.stacked').width())
   } else {
     console.log('not-stacked', $('.stacked'))
