@@ -1,14 +1,16 @@
 mixin panel(title, employees)
   - var displayOnPanel = 6
   - for (var i = 0; i < employees.length; i += displayOnPanel)
-    .slider--slide.js-panel
-      h3.title__absence=title
-      - for (var n = 0; n < displayOnPanel; n += 1)
-        - var item = n + i
-        - var employee = employees[item]
+      .slider--slide.js-panel
+        h3.title__absence=title
+      ul.block-container
+        - for (var n = 0; n < displayOnPanel; n += 1)
+          - var item = n + i
+          - var employee = employees[item]
 
-        if employee != undefined
-          +list-item(employee)
+          if employee != undefined
+            +list-item(employee)
+
 
 mixin list-item(data)
   - var imgClasses = []
@@ -21,9 +23,9 @@ mixin list-item(data)
     - dayStr = 'days'
     - imgClasses.push('image-block__image--multiple')
 
-  .image-block
-    .image-block__image(class=imgClasses.join(' '))
-      img.js-avatar(height='72', width='72', src=employeeImages[data.name], alt=data.name)
+  li.image-block
+    .image-block__image
+      img.js-avatar(height='72', width='72', src=employeeImages[data.name], alt=data.name, class=imgClasses.join(' '))
 
     span.days-left #{data.duration}&nbsp;#{dayStr}
 
@@ -43,15 +45,15 @@ block content
 
   .viewer
     .slider-container(class=(absences.length <= 3 && holidays.length <= 3 ? "stacked" : ""))
-      if absences && absences.length > 0
-        +panel("Absence", absences)
-      else
-        +no-employees("Absence")
+        if absences && absences.length > 0
+          +panel("Absence", absences)
+        else
+          +no-employees("Absence")
 
-      if holidays && holidays.length > 0
-        +panel("Holiday", holidays)
-      else
-        +no-employees("Holiday")
+        if holidays && holidays.length > 0
+          +panel("Holiday", holidays)
+        else
+          +no-employees("Holiday")
 
   script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
   script(src=versionPath('/javascripts/index.js'))
