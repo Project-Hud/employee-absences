@@ -1,15 +1,16 @@
 mixin panel(title, employees)
-  - var displayOnPanel = 6
+  - var totalNumber = (title === 'Absence') ? absences.length : holidays.length
+  - var displayOnPanel = totalNumber
   - for (var i = 0; i < employees.length; i += displayOnPanel)
       .slider--slide.js-panel
         h3.title__absence=title
-      ul.block-container
-        - for (var n = 0; n < displayOnPanel; n += 1)
-          - var item = n + i
-          - var employee = employees[item]
+        ul.block-container
+          - for (var n = 0; n < displayOnPanel; n += 1)
+            - var item = n + i
+            - var employee = employees[item]
 
-          if employee != undefined
-            +list-item(employee)
+            if employee != undefined
+              +list-item(employee)
 
 
 mixin list-item(data)
